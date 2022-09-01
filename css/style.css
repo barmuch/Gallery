@@ -1,0 +1,130 @@
+/* font */
+@font-face {
+    font-family: 'Amatic';
+    src: url(../font/Amatic-Bold.woff) format('woff');
+}
+
+/* style utama */
+
+body {
+    font: 18px/26px 'Amatic', 'Arial Narrow', 'sans-serif';
+    background-color: #ddd;
+}
+
+h1 {
+    font-size: 80px;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 6px 2px 2px yellowgreen;
+}
+
+.container {
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    box-shadow: 0 0 50px yellowgreen;
+    border-radius: 8px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid yellow;
+    float: left;
+    position: relative;
+    margin-right: 26px;
+    left: 90px;
+}
+
+.gallery .a img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(200,200,200,.5);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    color: black;
+    text-shadow: 1px 1px 1px #ddd;
+    font-size: 30px;
+    opacity: 0;
+    transition: .4s;
+}
+
+.gallery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999 ;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    padding: 100px;
+}
+
+.overlay:target {
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.4s;
+    width: auto;
+    height: auto;
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 18px rgba(218, 221, 31, .8);
+}
+
+.overlay:target img {
+    animation: zoomDanFade 0.5s;
+}
+
+
+/* animasi */
+
+@keyframes zoomDanFade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+
+/* clearfix */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
